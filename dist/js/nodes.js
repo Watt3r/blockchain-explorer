@@ -119,7 +119,7 @@ function getAndDrawNodeStats () {
           (node.version && node.version !== 'offline') ? numeral(node.fee.amount / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0.00') : '',
           {
             version: (node.version && node.version !== 'offline') ? node.version : '',
-            warning: versionCompare(node.version, ExplorerConfig.currentVersion) ? ' <i class="fas fa-warning has-trtl-red" title="Node version is out of date"></i>' : '',
+            warning: versionCompare(node.version, ExplorerConfig.currentVersion) < 0 ? ' <i class="fas fa-warning has-trtl-red" title="Node version is out of date"></i>' : '',
           },
           (node.version && node.version !== 'offline') ? numeral(node.height).format('0,0') : '',
           {

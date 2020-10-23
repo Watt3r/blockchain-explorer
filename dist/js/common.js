@@ -192,8 +192,8 @@ function secondsToHumanReadable (seconds) {
 function versionCompare(v1, v2, options) {
     var lexicographical = options && options.lexicographical,
         zeroExtend = options && options.zeroExtend,
-        v1parts = v1.split('.'),
-        v2parts = v2.split('.');
+        v1parts = v1.split('.', 2), // Limit to only match major and minor releases 
+        v2parts = v2.split('.', 2);
 
     function isValidPart(x) {
         return (lexicographical ? /^\d+[A-Za-z]*$/ : /^\d+$/).test(x);
